@@ -2,36 +2,28 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Hari Kartini - Login</title>
+  <title>Hari Kartini</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #f8cdda, #fbc2eb);
+    }
+
+    .center {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
 
-    .container {
+    .box {
       background: white;
-      padding: 30px;
+      padding: 25px;
       border-radius: 15px;
       width: 320px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
       text-align: center;
-    }
-
-    h1 {
-      color: #c2185b;
-      margin-bottom: 5px;
-    }
-
-    p {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
     input {
@@ -43,42 +35,90 @@
     }
 
     button {
-      width: 100%;
       padding: 10px;
-      background: #c2185b;
-      color: white;
+      width: 100%;
       border: none;
       border-radius: 8px;
+      background: #c2185b;
+      color: white;
       cursor: pointer;
-      font-weight: bold;
     }
 
     button:hover {
       background: #ad1457;
     }
 
-    .footer {
+    /* HOME */
+    #homePage {
+      display: none;
+      padding: 20px;
+      background: #fff0f5;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    header {
+      background: #c2185b;
+      color: white;
+      padding: 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      margin: 15px auto;
+      border-radius: 10px;
+      max-width: 400px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    img {
+      width: 200px;
+      border-radius: 10px;
       margin-top: 15px;
-      font-size: 12px;
-      color: #888;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>Hari Kartini</h1>
-    <p>"Habis Gelap Terbitlah Terang"</p>
+  <!-- LOGIN -->
+  <div id="loginPage" class="center">
+    <div class="box">
+      <h2>Hari Kartini 🌸</h2>
+      <p>"Habis Gelap Terbitlah Terang"</p>
 
-    <form onsubmit="login(event)">
-      <input type="text" id="username" placeholder="Username" required>
-      <input type="password" id="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
-
-    <div class="footer">
-      © 2026 - Semangat Kartini 🌸
+      <form onsubmit="login(event)">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
     </div>
+  </div>
+
+  <!-- HOME -->
+  <div id="homePage">
+    <header>
+      <h1>Selamat Datang 🌸</h1>
+      <p>Memperingati Hari Kartini</p>
+    </header>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Raden_Ajeng_Kartini.jpg">
+
+    <div class="card">
+      <h3>Siapa Kartini?</h3>
+      <p>
+        R.A. Kartini adalah pahlawan nasional Indonesia yang memperjuangkan emansipasi wanita.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Makna Hari Kartini</h3>
+      <p>
+        Semangat untuk belajar, mandiri, dan berani bermimpi.
+      </p>
+    </div>
+
+    <button onclick="logout()">Logout</button>
   </div>
 
   <script>
@@ -88,13 +128,17 @@
       const user = document.getElementById("username").value;
       const pass = document.getElementById("password").value;
 
-      // Login sederhana (dummy)
-      if(user === "kartini" && pass === "1234") {
-        alert("Selamat datang! Semangat Kartini 💪");
-        window.location.href = "home.html"; // redirect (opsional)
+      if (user === "kartini" && pass === "1234") {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("homePage").style.display = "block";
       } else {
         alert("Username atau password salah!");
       }
+    }
+
+    function logout() {
+      document.getElementById("homePage").style.display = "none";
+      document.getElementById("loginPage").style.display = "flex";
     }
   </script>
 
