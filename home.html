@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Beranda Hari Kartini</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f5;
+    }
+
+    header {
+      background: #c2185b;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    img {
+      width: 200px;
+      border-radius: 10px;
+      margin: 15px 0;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #555;
+      margin: 15px 0;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      margin: 15px auto;
+      border-radius: 10px;
+      max-width: 400px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #c2185b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ad1457;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Selamat Datang 🌸</h1>
+    <p>Memperingati Hari Kartini</p>
+  </header>
+
+  <div class="content">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Raden_Ajeng_Kartini.jpg" alt="Kartini">
+
+    <div class="quote">
+      "Habis Gelap Terbitlah Terang"
+    </div>
+
+    <div class="card">
+      <h3>Siapa Kartini?</h3>
+      <p>
+        R.A. Kartini adalah pahlawan nasional Indonesia yang memperjuangkan emansipasi wanita.
+        Ia dikenal karena pemikirannya tentang kesetaraan pendidikan bagi perempuan.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Makna Hari Kartini</h3>
+      <p>
+        Hari Kartini mengajarkan kita untuk terus maju, berani bermimpi,
+        dan memperjuangkan hak yang sama bagi semua.
+      </p>
+    </div>
+
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    function logout() {
+      alert("Anda telah logout");
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
