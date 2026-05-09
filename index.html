@@ -1,377 +1,1066 @@
-      <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hari Kartini 2026 — Perempuan Hebat, Indonesia Maju</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-
-  <!-- Tailwind -->
+  <title>Hari Kartini 2025 — Peringatan & Penghormatan</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
             serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
           },
           colors: {
-            batik: {
+            kartini: {
               50: '#fdf8f0',
               100: '#f9eddb',
-              200: '#f2d8b4',
-              300: '#e9bc84',
-              400: '#df9952',
-              500: '#d77f33',
-              600: '#c8652a',
-              700: '#a64c26',
-              800: '#863e25',
-              900: '#6d3521',
+              200: '#f2d8b6',
+              300: '#e9bc87',
+              400: '#df9955',
+              500: '#d4803a',
+              600: '#c76830',
+              700: '#a55029',
+              800: '#864128',
+              900: '#6d3723',
+              950: '#3b1a10',
+            },
+            warm: {
+              50: '#fefcf9',
+              100: '#fdf6ed',
+              200: '#faebd5',
+              300: '#f5d9b4',
+              400: '#edbc89',
+              500: '#e49b5e',
+              600: '#d97f3e',
+              700: '#b56532',
+              800: '#92512e',
+              900: '#774429',
+              950: '#412012',
             }
           }
         }
       }
     }
   </script>
-
   <style>
-    .batik-pattern {
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d97706' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
 
-    .batik-pattern-dark {
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
-    .floral-border {
-      border-image: repeating-linear-gradient(
-        45deg,
-        #d97706 0px, #d97706 2px,
-        transparent 2px, transparent 8px,
-        #b45309 8px, #b45309 10px,
-        transparent 10px, transparent 16px
-      ) 8;
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
     }
-
-    @keyframes float-slow {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0px); }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
     }
-    .anim-float { animation: float-slow 6s ease-in-out infinite; }
-    .anim-float-delayed { animation: float-slow 7s ease-in-out infinite 1s; }
-
-    @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 20px rgba(217, 119, 6, 0.15); }
-      50% { box-shadow: 0 0 40px rgba(217, 119, 6, 0.3); }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.85); }
+      to { opacity: 1; transform: scale(1); }
     }
-    .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
-
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
     @keyframes shimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
     }
-    .shimmer-text {
-      background: linear-gradient(90deg, #d97706, #fbbf24, #d97706, #fbbf24, #d97706);
-      background-size: 200% auto;
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #d4803a; }
+    }
+    @keyframes particle-float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    .anim-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .anim-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .anim-right { opacity: 0; transform: translateX(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .anim-scale { opacity: 0; transform: scale(0.85); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .anim-visible { opacity: 1 !important; transform: translateY(0) translateX(0) scale(1) !important; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+    .d5 { transition-delay: 0.5s; }
+    .d6 { transition-delay: 0.6s; }
+
+    .text-shimmer {
+      background: linear-gradient(90deg, #d4803a, #f2d8b6, #c76830, #f2d8b6, #d4803a);
+      background-size: 300% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: shimmer 4s linear infinite;
+      background-clip: text;
+      animation: shimmer 5s linear infinite;
     }
 
-    @keyframes spin-slow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    .spin-slow { animation: spin-slow 20s linear infinite; }
-
-    .toast-enter {
-      animation: toast-in 0.4s ease-out forwards;
-    }
-    .toast-exit {
-      animation: toast-out 0.3s ease-in forwards;
-    }
-    @keyframes toast-in {
-      from { transform: translateX(120%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    @keyframes toast-out {
-      from { transform: translateX(0); opacity: 1; }
-      to { transform: translateX(120%); opacity: 0; }
-
-      
-    .modal-backdrop {
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(59,26,16,0.92) 0%, rgba(59,26,16,0.7) 40%, rgba(59,26,16,0.85) 100%);
     }
 
-    
+    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1); }
+    .glass-warm { background: rgba(253,248,240,0.85); backdrop-filter: blur(16px); border: 1px solid rgba(212,128,58,0.15); }
+
+    .card-hover { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 25px 50px -12px rgba(59,26,16,0.2); }
+
+    .timeline-line { position: relative; }
+    .timeline-line::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #d4803a, #f2d8b6, transparent);
+    }
+    @media(min-width:768px) {
+      .timeline-line::before { left: 50%; transform: translateX(-50%); }
+    }
+
+    .quote-giant::before {
+      content: '\201C';
+      font-family: 'Playfair Display', serif;
+      font-size: 140px;
+      line-height: 0.8;
+      color: rgba(212,128,58,0.12);
+      position: absolute;
+      top: -10px;
+      left: 16px;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      bottom: -20px;
+      width: 6px;
+      height: 6px;
+      background: rgba(212,128,58,0.4);
+      border-radius: 50%;
+      animation: particle-float linear infinite;
+      pointer-events: none;
+    }
+
+    .portrait-ring {
+      position: absolute;
+      inset: -12px;
+      border: 2px dashed rgba(212,128,58,0.3);
+      border-radius: 50%;
+      animation: floatSlow 8s ease-in-out infinite;
+    }
+
     ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #0f172a; }
-    ::-webkit-scrollbar-thumb { background: #d97706; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #f59e0b; }
+    ::-webkit-scrollbar-track { background: #3b1a10; }
+    ::-webkit-scrollbar-thumb { background: #d4803a; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #c76830; }
 
-    ::selection { background: #d97706; color: white; }
-
-    .line-clamp-3 {
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
+<body class="bg-kartini-950 text-kartini-50 overflow-x-hidden">
 
-<body class="bg-slate-950 text-slate-200 font-sans overflow-x-hidden">
+  <!-- ===== PARTICLES ===== -->
+  <div id="particles" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
 
-  <!-- ==================== TOAST CONTAINER ==================== -->
-  <div id="toast-container" class="fixed top-24 right-6 z-[100] flex flex-col gap-3 pointer-events-none"></div>
-
-  <!-- ==================== NAVBAR ==================== -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 h-20 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition-shadow">
-          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-          </svg>
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background:transparent;">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-kartini-400 to-kartini-600 flex items-center justify-center shadow-lg group-hover:shadow-kartini-500/30 transition-shadow">
+          <span class="font-serif font-bold text-sm text-kartini-950">K</span>
         </div>
-        <div>
-          <span class="text-white font-semibold text-lg tracking-tight">Hari Kartini</span>
-          <span class="block text-[10px] text-amber-500 font-semibold tracking-widest uppercase -mt-0.5">21 April 2025</span>
-        </div>
+        <span class="font-serif font-semibold text-lg text-kartini-50 tracking-tight">Kartini</span>
       </a>
 
-      <!-- Desktop Nav -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="#tentang" class="text-sm text-slate-400 hover:text-amber-400 transition-colors">Tentang</a>
-        <a href="#sejarah" class="text-sm text-slate-400 hover:text-amber-400 transition-colors">Sejarah</a>
-        <a href="#kegiatan" class="text-sm text-slate-400 hover:text-amber-400 transition-colors">Kegiatan</a>
-        <a href="#galeri" class="text-sm text-slate-400 hover:text-amber-400 transition-colors">Galeri</a>
+        <a href="#tentang" class="text-sm text-kartini-200 hover:text-kartini-400 transition-colors">Tentang</a>
+        <a href="#perjalanan" class="text-sm text-kartini-200 hover:text-kartini-400 transition-colors">Perjalanan</a>
+        <a href="#kutipan" class="text-sm text-kartini-200 hover:text-kartini-400 transition-colors">Kutipan</a>
+        <a href="#galeri" class="text-sm text-kartini-200 hover:text-kartini-400 transition-colors">Galeri</a>
+        <a href="#pesan" class="text-sm text-kartini-200 hover:text-kartini-400 transition-colors">Pesan</a>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-kartini-800/50 border border-kartini-700/50 text-[11px] text-kartini-300 tracking-wider uppercase">
+          <span class="iconify w-3 h-3" data-icon="lucide:user"></span>
+          Guest
+        </span>
       </div>
 
-      <!-- Auth Buttons -->
-      <div class="flex items-center gap-3">
-        <!-- Guest State -->
-        <div id="btn-guest-state" class="flex items-center gap-3">
-          <button onclick="openLoginModal()" class="hidden sm:inline-flex items-center gap-2 text-sm text-slate-300 hover:text-amber-400 transition-colors px-4 py-2 rounded-lg border border-white/10 hover:border-amber-500/30">
-            <i data-lucide="log-in" class="w-4 h-4"></i>
-            Masuk
-          </button>
-          <button onclick="enterAsGuest()" class="inline-flex items-center gap-2 text-sm font-semibold bg-amber-600 hover:bg-amber-500 text-white px-5 py-2.5 rounded-lg transition-all shadow-lg shadow-amber-600/20 hover:shadow-amber-500/30">
-            <i data-lucide="user" class="w-4 h-4"></i>
-            <span class="hidden sm:inline">Masuk Tamu</span>
-            <span class="sm:hidden">Tamu</span>
-          </button>
-        </div>
-
-        <!-- Logged In State -->
-        <div id="btn-logged-state" class="hidden items-center gap-3">
-          <div class="hidden sm:flex items-center gap-2 bg-white/5 rounded-lg px-3 py-2 border border-white/10">
-            <div class="w-7 h-7 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
-              <i data-lucide="user" class="w-3.5 h-3.5 text-white"></i>
-            </div>
-            <span id="display-name" class="text-sm text-slate-300 font-medium"></span>
-          </div>
-          <button onclick="handleLogout()" class="inline-flex items-center gap-2 text-sm text-red-400 hover:text-red-300 hover:bg-red-500/10 px-4 py-2.5 rounded-lg border border-red-500/20 hover:border-red-500/40 transition-all" title="Logout (Ctrl+Shift+L)">
-            <i data-lucide="log-out" class="w-4 h-4"></i>
-            <span class="hidden sm:inline">Keluar</span>
-          </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <button id="mobile-menu-btn" class="md:hidden text-slate-400 hover:text-white p-2" onclick="toggleMobileMenu()">
-          <i data-lucide="menu" class="w-5 h-5"></i>
-        </button>
-      </div>
+      <button id="menuToggle" class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-kartini-800/50 transition-colors" aria-label="Menu">
+        <span class="iconify w-5 h-5 text-kartini-100" data-icon="lucide:menu" id="menuIcon"></span>
+      </button>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-md border-b border-white/5">
-      <div class="px-6 py-4 flex flex-col gap-3">
-        <a href="#tentang" class="text-sm text-slate-400 hover:text-amber-400 py-2" onclick="toggleMobileMenu()">Tentang</a>
-        <a href="#sejarah" class="text-sm text-slate-400 hover:text-amber-400 py-2" onclick="toggleMobileMenu()">Sejarah</a>
-        <a href="#kegiatan" class="text-sm text-slate-400 hover:text-amber-400 py-2" onclick="toggleMobileMenu()">Kegiatan</a>
-        <a href="#galeri" class="text-sm text-slate-400 hover:text-amber-400 py-2" onclick="toggleMobileMenu()">Galeri</a>
+    <div id="mobileMenu" class="md:hidden hidden absolute top-16 left-0 right-0 bg-kartini-950/98 backdrop-blur-xl border-b border-kartini-800/50">
+      <div class="px-6 py-6 flex flex-col gap-4">
+        <a href="#tentang" class="text-sm text-kartini-200 hover:text-kartini-400 py-2 transition-colors mob-link">Tentang</a>
+        <a href="#perjalanan" class="text-sm text-kartini-200 hover:text-kartini-400 py-2 transition-colors mob-link">Perjalanan</a>
+        <a href="#kutipan" class="text-sm text-kartini-200 hover:text-kartini-400 py-2 transition-colors mob-link">Kutipan</a>
+        <a href="#galeri" class="text-sm text-kartini-200 hover:text-kartini-400 py-2 transition-colors mob-link">Galeri</a>
+        <a href="#pesan" class="text-sm text-kartini-200 hover:text-kartini-400 py-2 transition-colors mob-link">Pesan</a>
+        <div class="pt-3 border-t border-kartini-800/50">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-kartini-800/50 border border-kartini-700/50 text-[11px] text-kartini-300 tracking-wider uppercase">
+            <span class="iconify w-3 h-3" data-icon="lucide:user"></span>
+            Mode Guest — Tanpa Login
+          </span>
+        </div>
       </div>
     </div>
   </nav>
 
-  <!-- ==================== LOGIN MODAL ==================== -->
-  <div id="login-modal" class="fixed inset-0 z-[90] hidden">
-    <div class="modal-backdrop absolute inset-0 bg-black/60" onclick="closeLoginModal()"></div>
-    <div class="absolute inset-0 flex items-center justify-center p-6 pointer-events-none">
-      <div id="login-card" class="pointer-events-auto w-full max-w-md bg-slate-900 rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
-        <!-- Header -->
-        <div class="relative px-8 pt-8 pb-6 bg-gradient-to-b from-amber-600/10 to-transparent">
-          <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors">
-            <i data-lucide="x" class="w-5 h-5"></i>
-          </button>
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-amber-500/20">
-            <i data-lucide="flower-2" class="w-7 h-7 text-white"></i>
+  <main>
+    <!-- ===== HERO ===== -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="https://picsum.photos/seed/kartini-flower-batik/1920/1080.jpg" alt="Hero background" class="w-full h-full object-cover" loading="eager">
+        <div class="hero-overlay absolute inset-0"></div>
+      </div>
+
+      <div class="absolute top-20 left-10 w-80 h-80 bg-kartini-600/10 rounded-full blur-3xl" style="animation:float 7s ease-in-out infinite;"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-kartini-400/8 rounded-full blur-3xl" style="animation:float 9s ease-in-out infinite 2s;"></div>
+
+      <div class="relative z-10 text-center px-6 max-w-5xl mx-auto" style="animation: fadeInUp 1s ease forwards;">
+        <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full glass mb-8">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-kartini-400 opacity-75" style="animation: pulse-ring 1.5s cubic-bezier(0,0,0.2,1) infinite;"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-kartini-400"></span>
+          </span>
+          <span class="text-xs font-medium tracking-[0.2em] uppercase text-kartini-200">21 April 2025</span>
+        </div>
+
+        <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight mb-6">
+          <span class="block text-kartini-50">Raden Ajeng</span>
+          <span class="block text-shimmer mt-1">Kartini</span>
+        </h1>
+
+        <p class="text-kartini-200/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+          Pelopor kebangkitan perempuan Nusantara. Melalui surat-suratnya, ia menanam benih emansipasi yang tumbuh melampaui zamannya — dan terus hidup hingga hari ini.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center" style="animation: fadeInUp 1s ease 0.4s forwards; opacity:0;">
+          <a href="#tentang" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-kartini-500 to-kartini-600 text-kartini-950 font-semibold text-sm hover:from-kartini-400 hover:to-kartini-500 transition-all shadow-lg shadow-kartini-600/25 hover:shadow-kartini-500/30 hover:-translate-y-0.5">
+            Jelajahi Kisahnya
+            <span class="iconify w-4 h-4" data-icon="lucide:arrow-down"></span>
+          </a>
+          <a href="#pesan" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl glass text-kartini-100 font-medium text-sm hover:bg-white/10 transition-all">
+            Tulis Tribut
+            <span class="iconify w-4 h-4" data-icon="lucide:pen-line"></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2" style="animation: fadeInUp 1s ease 0.8s forwards; opacity:0;">
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-[10px] tracking-[0.3em] uppercase text-kartini-400/60">Scroll</span>
+          <div class="w-5 h-9 rounded-full border-2 border-kartini-400/30 flex items-start justify-center p-1">
+            <div class="w-1 h-2.5 bg-kartini-400/60 rounded-full" style="animation: float 2s ease-in-out infinite;"></div>
           </div>
-          <h3 class="text-xl font-semibold text-white text-center font-serif">Selamat Datang</h3>
-          <p class="text-sm text-slate-400 text-center mt-1">Masuk untuk pengalaman lengkap</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TENTANG ===== -->
+    <section id="tentang" class="py-24 md:py-32 px-6 relative">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-kartini-700/30 to-transparent"></div>
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div class="anim-left">
+            <div class="relative max-w-md mx-auto md:mx-0">
+              <div class="portrait-ring"></div>
+              <div class="relative w-64 h-80 sm:w-72 sm:h-96 mx-auto rounded-full overflow-hidden border-4 border-kartini-700/40 shadow-2xl shadow-kartini-950/50" style="animation: floatSlow 6s ease-in-out infinite;">
+                <img src="https://picsum.photos/seed/kartini-woman-portrait/500/650.jpg" alt="R.A. Kartini" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-kartini-950/50 to-transparent"></div>
+              </div>
+              <div class="absolute -bottom-4 -right-4 glass-warm rounded-2xl p-4 shadow-xl">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-kartini-600 flex items-center justify-center">
+                    <span class="iconify w-5 h-5 text-white" data-icon="lucide:calendar"></span>
+                  </div>
+                  <div>
+                    <p class="text-[11px] text-kartini-600 font-medium tracking-wider uppercase">Lahir</p>
+                    <p class="text-sm font-semibold text-kartini-900">21 April 1879</p>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute -top-4 -left-4 glass-warm rounded-2xl p-4 shadow-xl">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-kartini-600 flex items-center justify-center">
+                    <span class="iconify w-5 h-5 text-white" data-icon="lucide:map-pin"></span>
+                  </div>
+                  <div>
+                    <p class="text-[11px] text-kartini-600 font-medium tracking-wider uppercase">Asal</p>
+                    <p class="text-sm font-semibold text-kartini-900">Jepara, Jawa Tengah</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="anim-right">
+            <span class="inline-flex items-center gap-2 text-xs font-medium tracking-[0.2em] uppercase text-kartini-400 mb-5">
+              <span class="w-8 h-px bg-kartini-500"></span>
+              Mengenal Lebih Dekat
+            </span>
+            <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+              Sang Pelopor<br><span class="text-kartini-400">Emansipasi Perempuan</span>
+            </h2>
+            <div class="space-y-4 text-kartini-200/70 leading-relaxed">
+              <p>
+                Raden Ajeng Kartini lahir dari keluarga bangsawan Jawa. Ayahnya, R.M.A.A. Sosroningrat, adalah Bupati Jepara. Meski dibesarkan dalam kemewahan, kehidupan Kartini dibatasi oleh adat <em>pingitan</em> — tradisi yang mengurung perempuan di rumah hingga siap dipinangkan.
+              </p>
+              <p>
+                Namun di balik tembok itu, Kartini membangun dunianya sendiri melalui buku-buku dan surat-menyurat dengan teman-teman di Belanda. Ia menguasai bahasa Belanda secara otodidak dan membaca tulisan-tulisan tentang hak-hak perempuan di Eropa.
+              </p>
+              <p>
+                Lewat lebih dari seratus surat yang kemudian dibukukan menjadi <em>"Door Duisternis tot Licht"</em> (Habis Gelap Terbitlah Terang), Kartini menyuarakan keinginan perempuan Nusantara untuk mendapatkan pendidikan, kebebasan, dan kesetaraan.
+              </p>
+            </div>
+            <div class="mt-8 flex flex-wrap gap-2.5">
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-kartini-800/40 border border-kartini-700/40 rounded-lg text-xs font-medium text-kartini-300">
+                <span class="iconify w-3.5 h-3.5 text-kartini-400" data-icon="lucide:book-open"></span> Penulis Surat
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-kartini-800/40 border border-kartini-700/40 rounded-lg text-xs font-medium text-kartini-300">
+                <span class="iconify w-3.5 h-3.5 text-kartini-400" data-icon="lucide:graduation-cap"></span> Pendidik
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-kartini-800/40 border border-kartini-700/40 rounded-lg text-xs font-medium text-kartini-300">
+                <span class="iconify w-3.5 h-3.5 text-kartini-400" data-icon="lucide:heart"></span> Feminis Pionir
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-kartini-800/40 border border-kartini-700/40 rounded-lg text-xs font-medium text-kartini-300">
+                <span class="iconify w-3.5 h-3.5 text-kartini-400" data-icon="lucide:award"></span> Pahlawan Nasional
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATISTIK ===== -->
+    <section class="py-20 px-6 relative">
+      <div class="absolute inset-0 bg-gradient-to-b from-kartini-900/50 via-kartini-900/30 to-transparent pointer-events-none"></div>
+      <div class="max-w-6xl mx-auto relative z-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div class="text-center p-6 rounded-2xl bg-kartini-900/30 border border-kartini-800/30 anim-up">
+            <p class="font-serif text-4xl md:text-5xl font-bold text-kartini-400 counter" data-target="1879">0</p>
+            <p class="text-xs text-kartini-300/60 tracking-wider uppercase mt-2 font-medium">Tahun Lahir</p>
+          </div>
+          <div class="text-center p-6 rounded-2xl bg-kartini-900/30 border border-kartini-800/30 anim-up d1">
+            <p class="font-serif text-4xl md:text-5xl font-bold text-kartini-400 counter" data-target="25">0</p>
+            <p class="text-xs text-kartini-300/60 tracking-wider uppercase mt-2 font-medium">Usia Saat Wafat</p>
+          </div>
+          <div class="text-center p-6 rounded-2xl bg-kartini-900/30 border border-kartini-800/30 anim-up d2">
+            <p class="font-serif text-4xl md:text-5xl font-bold text-kartini-400 counter" data-target="100">0</p>
+            <p class="text-xs text-kartini-300/60 tracking-wider uppercase mt-2 font-medium">+ Surat Ditulis</p>
+          </div>
+          <div class="text-center p-6 rounded-2xl bg-kartini-900/30 border border-kartini-800/30 anim-up d3">
+            <p class="font-serif text-4xl md:text-5xl font-bold text-kartini-400 counter" data-target="146">0</p>
+            <p class="text-xs text-kartini-300/60 tracking-wider uppercase mt-2 font-medium">Tahun Warisan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PERJALANAN / TIMELINE ===== -->
+    <section id="perjalanan" class="py-24 md:py-32 px-6 relative">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-kartini-700/30 to-transparent"></div>
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-20 anim-up">
+          <span class="inline-flex items-center gap-2 text-xs font-medium tracking-[0.2em] uppercase text-kartini-400 mb-5">
+            <span class="w-8 h-px bg-kartini-500"></span>
+            Linimasa Kehidupan
+            <span class="w-8 h-px bg-kartini-500"></span>
+          </span>
+          <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold">Perjalanan <span class="text-kartini-400">Sang Pionir</span></h2>
+        </div>
+
+        <div class="timeline-line">
+          <!-- 1879 -->
+          <div class="relative mb-14 pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-12 anim-up">
+            <div class="absolute left-[18px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-kartini-400 border-4 border-kartini-950 z-10 shadow-lg shadow-kartini-500/30 top-1"></div>
+            <div class="md:text-right md:pr-8">
+              <span class="text-xs font-bold tracking-[0.2em] uppercase text-kartini-500">21 April 1879</span>
+              <h3 class="font-serif text-xl font-bold mt-1 mb-2">Kelahiran di Jepara</h3>
+              <p class="text-kartini-200/60 text-sm leading-relaxed">Lahir sebagai putri sulung Bupati Jepara. Dari darah bangsawan ini, ia mendapatkan akses bacaan yang lebih luas dibanding perempuan lain pada masanya.</p>
+            </div>
+            <div class="hidden md:block"></div>
+          </div>
+          <!-- 1891 -->
+          <div class="relative mb-14 pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-12 anim-up d1">
+            <div class="absolute left-[18px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-kartini-400 border-4 border-kartini-950 z-10 shadow-lg shadow-kartini-500/30 top-1"></div>
+            <div class="hidden md:block"></div>
+            <div class="md:pl-8">
+              <span class="text-xs font-bold tracking-[0.2em] uppercase text-kartini-500">1891</span>
+              <h3 class="font-serif text-xl font-bold mt-1 mb-2">Masa Pingitan Dimulai</h3>
+              <p class="text-kartini-200/60 text-sm leading-relaxed">Memasuki usia 12 tahun, Kartini dikurung di rumah menunggu dipinangkan. Namun ia justru menggunakan waktu ini untuk belajar bahasa Belanda secara otodidak.</p>
+            </div>
+          </div>
+          <!-- 1899 -->
+          <div class="relative mb-14 pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-12 anim-up d2">
+            <div class="absolute left-[18px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-kartini-400 border-4 border-kartini-950 z-10 shadow-lg shadow-kartini-500/30 top-1"></div>
+            <div class="md:text-right md:pr-8">
+              <span class="text-xs font-bold tracking-[0.2em] uppercase text-kartini-500">1899</span>
+              <h3 class="font-serif text-xl font-bold mt-1 mb-2">Surat Pertama ke Belanda</h3>
+              <p class="text-kartini-200/60 text-sm leading-relaxed">Mulai berkorespondensi dengan Stella Zeehandelaar dan tokoh-tokoh progresif Belanda. Surat-suratnya menjadi jendela dunia tentang kondisi perempuan Nusantara.</p>
+            </div>
+            <div class="hidden md:block"></div>
+          </div>
+          <!-- 1903 sekolah -->
+          <div class="relative mb-14 pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-12 anim-up d3">
+            <div class="absolute left-[18px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-kartini-400 border-4 border-kartini-950 z-10 shadow-lg shadow-kartini-500/30 top-1"></div>
+            <div class="hidden md:block"></div>
+            <div class="md:pl-8">
+              <span class="text-xs font-bold tracking-[0.2em] uppercase text-kartini-500">1903</span>
+              <h3 class="font-serif text-xl font-bold mt-1 mb-2">Sekolah Perempuan Pertama</h3>
+              <p class="text-kartini-200/60 text-sm leading-relaxed">Bersama saudarinya, Kartini merintis sekolah khusus perempuan di Jepara — simbol nyata perlawanan terhadap sistem yang menafikan hak pendidikan perempuan.</p>
+            </div>
+          </div>
+          <!-- 1903 nikah -->
+          <div class="relative mb-14 pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-12 anim-up d4">
+            <div class="absolute left-[18px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-kartini-400 border-4 border-kartini-950 z-10 shadow-lg shadow-kartini-500/30 top-1"></div>
+            <div class="md:text-right md:pr-8">
+              <span class="text-xs font-bold tracking-[0.2em] uppercase text-kartini-500">November 1903</span>
+              <h3 class="font-serif text-xl font-bold mt-1 mb-2">Perkawinan dengan Bupati Rembang</h3>
+              <p class="text-kartini-200/60 text-sm leading-relaxed">Menikah dengan Raden Adipati Djojo Adiningrat. Sebagai syarat, ia meminta tetap diizinkan mendirikan sekolah dan melanjutkan korespondensinya.</p>
+            </div>
+            <div class="hidden md:block"></div>
+          </div>
+          <!-- 1904 wafat -->
+          <div class="relative mb-14 pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-12 anim-up d5">
+            <div class="absolute left-[18px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-kartini-600 border-4 border-kartini-950 z-10 shadow-lg shadow-kartini-600/30 top-1"></div>
+            <div class="hidden md:block"></div>
+            <div class="md:pl-8">
+              <span class="text-xs font-bold tracking-[0.2em] uppercase text-kartini-600">17 September 1904</span>
+              <h3 class="font-serif text-xl font-bold mt-1 mb-2">Wafat Setelah Melahirkan</h3>
+              <p class="text-kartini-200/60 text-sm leading-relaxed">Kartini wafat pada usia 25 tahun, empat hari setelah melahirkan anak pertamanya. Perjuangannya harus berhenti — tapi gagasannya baru saja dimulai.</p>
+            </div>
+          </div>
+          <!-- 1911 -->
+          <div class="relative pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-12 anim-up d6">
+            <div class="absolute left-[18px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-kartini-300 border-4 border-kartini-950 z-10 shadow-lg shadow-kartini-300/20 top-1"></div>
+            <div class="md:text-right md:pr-8">
+              <span class="text-xs font-bold tracking-[0.2em] uppercase text-kartini-400">1911</span>
+              <h3 class="font-serif text-xl font-bold mt-1 mb-2">Door Duisternis tot Licht</h3>
+              <p class="text-kartini-200/60 text-sm leading-relaxed">J.H. Abendanon menerbitkan kumpulan surat Kartini. Buku ini menyebar ke seluruh Belanda dan Indonesia, mengobarkan api emansipasi yang tak pernah padam.</p>
+            </div>
+            <div class="hidden md:block"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== KUTIPAN ===== -->
+    <section id="kutipan" class="py-24 md:py-32 px-6 relative">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-kartini-700/30 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-kartini-900/20 via-transparent to-kartini-900/20 pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="text-center mb-20 anim-up">
+          <span class="inline-flex items-center gap-2 text-xs font-medium tracking-[0.2em] uppercase text-kartini-400 mb-5">
+            <span class="w-8 h-px bg-kartini-500"></span>
+            Warisan Pemikiran
+            <span class="w-8 h-px bg-kartini-500"></span>
+          </span>
+          <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold">Kata-Kata yang <span class="text-kartini-400">Tak Pernah Padam</span></h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="relative p-8 md:p-10 rounded-2xl bg-kartini-900/40 border border-kartini-800/30 card-hover anim-up quote-giant overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-kartini-500 to-kartini-400"></div>
+            <p class="font-serif text-lg md:text-xl italic leading-relaxed text-kartini-100 relative z-10 mb-6">
+              Habis gelap terbitlah terang. Sesudah kita merasakan penderitaan itu, barulah kita dapat menghargai nikmatnya kebahagiaan.
+            </p>
+            <div class="flex items-center gap-3 relative z-10">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-kartini-400 to-kartini-600 flex items-center justify-center text-kartini-950 font-serif font-bold text-sm">RK</div>
+              <div>
+                <p class="text-sm font-semibold text-kartini-200">R.A. Kartini</p>
+                <p class="text-xs text-kartini-400/60">Surat kepada Stella Zeehandelaar, 1899</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative p-8 md:p-10 rounded-2xl bg-kartini-900/40 border border-kartini-800/30 card-hover anim-up d1 quote-giant overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-kartini-500 to-kartini-400"></div>
+            <p class="font-serif text-lg md:text-xl italic leading-relaxed text-kartini-100 relative z-10 mb-6">
+              Perempuan bukanlah makhluk yang hanya diciptakan untuk beranak dan mengurus rumah tangga. Ia juga manusia yang berakal budi, berhak menuntut ilu setinggi-tingginya.
+            </p>
+            <div class="flex items-center gap-3 relative z-10">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-kartini-400 to-kartini-600 flex items-center justify-center text-kartini-950 font-serif font-bold text-sm">RK</div>
+              <div>
+                <p class="text-sm font-semibold text-kartini-200">R.A. Kartini</p>
+                <p class="text-xs text-kartini-400/60">Surat kepada Stella Zeehandelaar, 1900</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative p-8 md:p-10 rounded-2xl bg-kartini-900/40 border border-kartini-800/30 card-hover anim-up d2 quote-giant overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-kartini-500 to-kartini-400"></div>
+            <p class="font-serif text-lg md:text-xl italic leading-relaxed text-kartini-100 relative z-10 mb-6">
+              Aku ingin menjadi sesuatu, walaupun tidak berarti. Aku ingin bisa membantu, sekecil apapun, sesama manusia yang tertindas.
+            </p>
+            <div class="flex items-center gap-3 relative z-10">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-kartini-400 to-kartini-600 flex items-center justify-center text-kartini-950 font-serif font-bold text-sm">RK</div>
+              <div>
+                <p class="text-sm font-semibold text-kartini-200">R.A. Kartini</p>
+                <p class="text-xs text-kartini-400/60">Surat kepada Nellie van Kol</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative p-8 md:p-10 rounded-2xl bg-kartini-900/40 border border-kartini-800/30 card-hover anim-up d3 quote-giant overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-kartini-500 to-kartini-400"></div>
+            <p class="font-serif text-lg md:text-xl italic leading-relaxed text-kartini-100 relative z-10 mb-6">
+              Jika kita mau belajar, maka pengetahuan akan datang dengan sendirinya. Pengetahuan itu cahaya, kebodohan itu kegelapan.
+            </p>
+            <div class="flex items-center gap-3 relative z-10">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-kartini-400 to-kartini-600 flex items-center justify-center text-kartini-950 font-serif font-bold text-sm">RK</div>
+              <div>
+                <p class="text-sm font-semibold text-kartini-200">R.A. Kartini</p>
+                <p class="text-xs text-kartini-400/60">Surat kepada Rosa Abendanon</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative p-8 md:p-10 rounded-2xl bg-kartini-900/40 border border-kartini-800/30 card-hover anim-up d4 quote-giant overflow-hidden md:col-span-2">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-kartini-600 via-kartini-400 to-kartini-600"></div>
+            <p class="font-serif text-xl md:text-2xl italic leading-relaxed text-kartini-100 relative z-10 mb-6 text-center max-w-3xl mx-auto">
+              Tiap-tiap manusia mempunyai hak untuk menjadi manusia, hak untuk hidup, hak untuk bebas, dan hak untuk bahagia.
+            </p>
+            <div class="flex items-center gap-3 relative z-10 justify-center">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-kartini-400 to-kartini-600 flex items-center justify-center text-kartini-950 font-serif font-bold text-sm">RK</div>
+              <div>
+                <p class="text-sm font-semibold text-kartini-200">R.A. Kartini</p>
+                <p class="text-xs text-kartini-400/60">Surat kepada Stella Zeehandelaar</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALERI ===== -->
+    <section id="galeri" class="py-24 md:py-32 px-6 relative">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-kartini-700/30 to-transparent"></div>
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-20 anim-up">
+          <span class="inline-flex items-center gap-2 text-xs font-medium tracking-[0.2em] uppercase text-kartini-400 mb-5">
+            <span class="w-8 h-px bg-kartini-500"></span>
+            Jejak Sejarah
+            <span class="w-8 h-px bg-kartini-500"></span>
+          </span>
+          <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold">Galeri <span class="text-kartini-400">Kartini</span></h2>
+          <p class="text-kartini-200/50 mt-4 max-w-xl mx-auto">Tempat-tempat dan momen yang menyimpan kenangan akan perjuangannya.</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer group border border-kartini-800/30 anim-scale" onclick="openLightbox(this)">
+            <img src="https://picsum.photos/seed/kartini-jepara-city/600/450.jpg" alt="Kota Jepara" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-kartini-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+              <div>
+                <p class="font-serif font-bold text-sm">Kota Jepara</p>
+                <p class="text-xs text-kartini-300/60">Tempat kelahiran R.A. Kartini</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer group border border-kartini-800/30 anim-scale d1" onclick="openLightbox(this)">
+            <img src="https://picsum.photos/seed/kartini-museum-house/600/450.jpg" alt="Museum Kartini" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-kartini-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+              <div>
+                <p class="font-serif font-bold text-sm">Museum Kartini</p>
+                <p class="text-xs text-kartini-300/60">Rumah masa kecil yang jadi museum</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer group border border-kartini-800/30 anim-scale d2" onclick="openLightbox(this)">
+            <img src="https://picsum.photos/seed/kartini-batik-art/600/450.jpg" alt="Batik Jepara" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-kartini-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+              <div>
+                <p class="font-serif font-bold text-sm">Batik Jepara</p>
+                <p class="text-xs text-kartini-300/60">Warisan budaya yang dikembangkan Kartini</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer group border border-kartini-800/30 anim-scale d3" onclick="openLightbox(this)">
+            <img src="https://picsum.photos/seed/kartini-rembang-city/600/450.jpg" alt="Kota Rembang" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-kartini-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+              <div>
+                <p class="font-serif font-bold text-sm">Kota Rembang</p>
+                <p class="text-xs text-kartini-300/60">Tempat terakhir Kartini mengabdikan diri</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer group border border-kartini-800/30 anim-scale d4" onclick="openLightbox(this)">
+            <img src="https://picsum.photos/seed/kartini-school-girls/600/450.jpg" alt="Sekolah Kartini" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-kartini-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+              <div>
+                <p class="font-serif font-bold text-sm">Sekolah Perempuan</p>
+                <p class="text-xs text-kartini-300/60">Warisan pendidikan yang berlanjut</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer group border border-kartini-800/30 anim-scale d5" onclick="openLightbox(this)">
+            <img src="https://picsum.photos/seed/kartini-monument-statue/600/450.jpg" alt="Monumen Kartini" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-kartini-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+              <div>
+                <p class="font-serif font-bold text-sm">Monumen Kartini</p>
+                <p class="text-xs text-kartini-300/60">Penghormatan abadi bagi sang pahlawan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PESAN DINDING ===== -->
+    <section id="pesan" class="py-24 md:py-32 px-6 relative">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-kartini-700/30 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-kartini-900/20 via-transparent to-kartini-900/30 pointer-events-none"></div>
+
+      <div class="max-w-3xl mx-auto relative z-10">
+        <div class="text-center mb-16 anim-up">
+          <span class="inline-flex items-center gap-2 text-xs font-medium tracking-[0.2em] uppercase text-kartini-400 mb-5">
+            <span class="w-8 h-px bg-kartini-500"></span>
+            Dinding Pesan
+            <span class="w-8 h-px bg-kartini-500"></span>
+          </span>
+          <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold">Tuliskan <span class="text-kartini-400">Tributmu</span></h2>
+          <p class="text-kartini-200/50 mt-4">Bagikan apapun tentang Kartini, emansipasi, atau inspirasimu. Mode guest — tanpa login.</p>
         </div>
 
         <!-- Form -->
-        <form id="login-form" class="px-8 pb-8 space-y-5" onsubmit="handleLogin(event)">
-          <div>
-            <label class="block text-sm font-medium text-slate-300 mb-2">Nama Lengkap</label>
-            <div class="relative">
-              <i data-lucide="user" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500"></i>
-              <input type="text" id="login-name" placeholder="Contoh: Siti Nurhaliza" required
-                class="w-full bg-slate-800/50 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30 transition-all">
+        <div class="p-6 md:p-8 rounded-2xl bg-kartini-900/40 border border-kartini-800/30 mb-10 anim-up">
+          <div class="grid sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-[11px] font-medium tracking-[0.15em] uppercase text-kartini-400/70 mb-2">Nama (Guest)</label>
+              <input type="text" id="inputName" maxlength="40" placeholder="Nama panggilanmu..." class="w-full px-4 py-3 rounded-xl bg-kartini-800/40 border border-kartini-700/40 text-kartini-100 text-sm placeholder-kartini-500/40 outline-none focus:border-kartini-500 transition-colors">
+            </div>
+            <div>
+              <label class="block text-[11px] font-medium tracking-[0.15em] uppercase text-kartini-400/70 mb-2">Kota</label>
+              <input type="text" id="inputCity" maxlength="40" placeholder="Kota asalmu..." class="w-full px-4 py-3 rounded-xl bg-kartini-800/40 border border-kartini-700/40 text-kartini-100 text-sm placeholder-kartini-500/40 outline-none focus:border-kartini-500 transition-colors">
             </div>
           </div>
-
-          <div>
-            <label class="block text-sm font-medium text-slate-300 mb-2">Email</label>
-            <div class="relative">
-              <i data-lucide="mail" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500"></i>
-              <input type="email" id="login-email" placeholder="email@contoh.com" required
-                class="w-full bg-slate-800/50 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30 transition-all">
-            </div>
+          <div class="mb-5">
+            <label class="block text-[11px] font-medium tracking-[0.15em] uppercase text-kartini-400/70 mb-2">Pesan Tribut</label>
+            <textarea id="inputMsg" maxlength="500" rows="4" placeholder="Tulis pesan atau tributmu untuk Kartini..." class="w-full px-4 py-3 rounded-xl bg-kartini-800/40 border border-kartini-700/40 text-kartini-100 text-sm placeholder-kartini-500/40 outline-none focus:border-kartini-500 transition-colors resize-none"></textarea>
+            <div class="text-right text-[11px] text-kartini-500/50 mt-1"><span id="charCount">0</span>/500</div>
           </div>
-
-          <div>
-            <label class="block text-sm font-medium text-slate-300 mb-2">Kata Sandi</label>
-            <div class="relative">
-              <i data-lucide="lock" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500"></i>
-              <input type="password" id="login-password" placeholder="Minimal 6 karakter" required minlength="6"
-                class="w-full bg-slate-800/50 border border-white/10 rounded-xl pl-10 pr-11 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30 transition-all">
-              <button type="button" onclick="togglePassword()" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition-colors">
-                <i data-lucide="eye" id="eye-icon" class="w-4 h-4"></i>
-              </button>
-            </div>
+          <div class="flex items-center justify-between flex-wrap gap-3">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-kartini-800/50 border border-kartini-700/40 text-[10px] text-kartini-400 tracking-wider uppercase">
+              <span class="iconify w-3 h-3" data-icon="lucide:shield-check"></span>
+              Guest Mode
+            </span>
+            <button onclick="kirimPesan()" id="btnKirim" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-kartini-500 to-kartini-600 text-kartini-950 font-semibold text-sm hover:from-kartini-400 hover:to-kartini-500 transition-all shadow-lg shadow-kartini-600/20 hover:shadow-kartini-500/25 hover:-translate-y-0.5 active:translate-y-0">
+              Kirim Pesan
+              <span class="iconify w-4 h-4" data-icon="lucide:send"></span>
+            </button>
           </div>
+        </div>
 
-          <!-- Error message -->
-          <div id="login-error" class="hidden text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-2.5 flex items-center gap-2">
-            <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0"></i>
-            <span id="login-error-text"></span>
-          </div>
+        <!-- Messages -->
+        <div id="msgContainer"></div>
+      </div>
+    </section>
 
-          <button type="submit" id="login-submit-btn"
-            class="w-full bg-amber-600 hover:bg-amber-500 text-white font-semibold py-3 rounded-xl transition-all shadow-lg shadow-amber-600/20 hover:shadow-amber-500/30 flex items-center justify-center gap-2">
-            <i data-lucide="log-in" class="w-4 h-4"></i>
-            Masuk
+    <!-- ===== CTA ===== -->
+    <section class="py-24 md:py-32 px-6 relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-kartini-700/30 to-transparent"></div>
+      <div class="absolute inset-0">
+        <img src="https://picsum.photos/seed/kartini-kebaya-pattern/1920/600.jpg" alt="" class="w-full h-full object-cover opacity-[0.06]">
+      </div>
+      <div class="absolute top-1/3 left-1/4 w-72 h-72 bg-kartini-500/8 rounded-full blur-3xl" style="animation: float 8s ease-in-out infinite;"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-kartini-400/6 rounded-full blur-3xl" style="animation: float 10s ease-in-out infinite 3s;"></div>
+
+      <div class="max-w-3xl mx-auto text-center relative z-10 anim-up">
+        <p class="text-5xl mb-6">🌺</p>
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+          Teruslah Melanjutkan<br><span class="text-kartini-400">Api Perjuangan Kartini</span>
+        </h2>
+        <p class="text-kartini-200/60 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+          Setiap perempuan yang berani bermimpi, belajar, dan berkarya adalah penerus semangat Kartini. Jadikan pemikirannya inspirasi nyata.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#hero" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-kartini-500 to-kartini-600 text-kartini-950 font-semibold text-sm hover:from-kartini-400 hover:to-kartini-500 transition-all shadow-lg shadow-kartini-600/25 hover:-translate-y-0.5">
+            <span class="iconify w-4 h-4" data-icon="lucide:arrow-up"></span>
+            Kembali ke Atas
+          </a>
+          <button onclick="bagikan()" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl glass text-kartini-200 font-medium text-sm hover:bg-white/10 transition-all">
+            <span class="iconify w-4 h-4" data-icon="lucide:share-2"></span>
+            Bagikan
           </button>
+        </div>
+      </div>
+    </section>
+  </main>
 
-          <div class="relative flex items-center justify-center my-2">
-            <div class="border-t border-white/10 flex-1"></div>
-            <span class="px-3 text-xs text-slate-500">atau</span>
-            <div class="border-t border-white/10 flex-1"></div>
+  <!-- ===== FOOTER ===== -->
+  <footer class="relative border-t border-kartini-800/30">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <div>
+          <div class="flex items-center gap-2.5 mb-5">
+            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-kartini-400 to-kartini-600 flex items-center justify-center">
+              <span class="font-serif font-bold text-sm text-kartini-950">K</span>
+            </div>
+            <span class="font-serif font-semibold text-lg">Hari Kartini 2025</span>
           </div>
-
-          <button type="button" onclick="enterAsGuest(); closeLoginModal();"
-            class="w-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white font-medium py-3 rounded-xl border border-white/10 hover:border-white/20 transition-all flex items-center justify-center gap-2">
-            <i data-lucide="eye-off" class="w-4 h-4"></i>
-            Masuk sebagai Tamu
-          </button>
-
-          <p class="text-xs text-slate-500 text-center">
-            Dengan masuk, Anda menyetujui <a href="#" class="text-amber-500 hover:underline">syarat & ketentuan</a>
+          <p class="text-kartini-300/50 text-sm leading-relaxed max-w-xs">
+            Website peringatan Hari Kartini. Dibuat sebagai bentuk penghormatan atas jasa dan pemikiran Raden Ajeng Kartini bagi bangsa Indonesia.
           </p>
-        </form>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold tracking-[0.15em] uppercase text-kartini-400 mb-5">Navigasi</h4>
+          <div class="flex flex-col gap-3">
+            <a href="#tentang" class="text-sm text-kartini-300/50 hover:text-kartini-300 transition-colors">Tentang Kartini</a>
+            <a href="#perjalanan" class="text-sm text-kartini-300/50 hover:text-kartini-300 transition-colors">Perjalanan Hidup</a>
+            <a href="#kutipan" class="text-sm text-kartini-300/50 hover:text-kartini-300 transition-colors">Kutipan</a>
+            <a href="#galeri" class="text-sm text-kartini-300/50 hover:text-kartini-300 transition-colors">Galeri</a>
+            <a href="#pesan" class="text-sm text-kartini-300/50 hover:text-kartini-300 transition-colors">Dinding Pesan</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold tracking-[0.15em] uppercase text-kartini-400 mb-5">Referensi</h4>
+          <div class="flex flex-col gap-3">
+            <a href="https://id.wikipedia.org/wiki/Raden_Ajeng_Kartini" target="_blank" rel="noopener" class="text-sm text-kartini-300/50 hover:text-kartini-300 transition-colors inline-flex items-center gap-1.5">
+              <span class="iconify w-3 h-3" data-icon="lucide:external-link"></span> Wikipedia — R.A. Kartini
+            </a>
+            <a href="https://www.kemdikbud.go.id/" target="_blank" rel="noopener" class="text-sm text-kartini-300/50 hover:text-kartini-300 transition-colors inline-flex items-center gap-1.5">
+              <span class="iconify w-3 h-3" data-icon="lucide:external-link"></span> Kemendikbud RI
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-kartini-800/30 pt-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p class="text-kartini-400/40 text-xs text-center md:text-left">
+            Dibuat dengan penghormatan untuk R.A. Kartini — Habis Gelap Terbitlah Terang
+          </p>
+          <div class="flex flex-col items-center md:items-end gap-1">
+            <p class="text-kartini-300/70 text-sm font-semibold">
+              AKBAR EL MOLANA AHMAD
+            </p>
+            <p class="text-kartini-400/60 text-xs font-medium tracking-wider uppercase">
+              X RPL 2
+            </p>
+          </div>
+        </div>
       </div>
     </div>
+  </footer>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div id="lightbox" class="fixed inset-0 z-[200] bg-kartini-950/95 backdrop-blur-lg hidden items-center justify-center p-6 cursor-pointer" onclick="closeLightbox()" role="dialog" aria-label="Tampilan gambar besar">
+    <button class="absolute top-6 right-6 w-10 h-10 rounded-full glass flex items-center justify-center text-kartini-200 hover:text-white transition-colors" aria-label="Tutup">
+      <span class="iconify w-5 h-5" data-icon="lucide:x"></span>
+    </button>
+    <img id="lightboxImg" src="" alt="" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl object-contain transform scale-90 opacity-0 transition-all duration-400">
   </div>
 
-  <!-- ==================== HERO SECTION ==================== -->
-  <section class="relative min-h-screen flex items-center justify-center batik-pattern overflow-hidden">
-    <!-- Background Blobs -->
-    <div class="absolute top-20 -left-32 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[128px] pointer-events-none"></div>
-    <div class="absolute bottom-10 -right-32 w-[400px] h-[400px] bg-amber-700/10 rounded-full blur-[100px] pointer-events-none"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+  <!-- ===== TOAST ===== -->
+  <div id="toast" class="fixed bottom-6 right-6 z-[300] px-5 py-3.5 rounded-xl bg-kartini-800/95 backdrop-blur-lg border border-kartini-700/50 text-kartini-100 text-sm shadow-2xl shadow-kartini-950/50 flex items-center gap-2.5 translate-y-20 opacity-0 transition-all duration-400 pointer-events-none">
+    <span class="iconify w-4 h-4 text-kartini-400" data-icon="lucide:check-circle-2" id="toastIcon"></span>
+    <span id="toastMsg">Pesan terkirim!</span>
+  </div>
 
-    <!-- Decorative spinning element -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-      <div class="spin-slow w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full border border-amber-500/5"></div>
-    </div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-      <div class="spin-slow w-[350px] h-[350px] md:w-[500px] md:h-[500px] rounded-full border border-amber-500/8" style="animation-direction: reverse; animation-duration: 15s;"></div>
-    </div>
+  <script>
+    // ===== ICONS =====
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.Iconify) Iconify.scan();
+    });
 
-    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
-      <!-- Badge -->
-      <div class="reveal-item inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-full px-5 py-2 mb-8">
-        <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
-        <span class="text-xs font-semibold text-amber-400 tracking-wider uppercase">21 April 2025</span>
-      </div>
+    // ===== PARTICLES =====
+    (function createParticles() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 25; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 4 + 2;
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDuration = (Math.random() * 15 + 15) + 's';
+        p.style.animationDelay = (Math.random() * 20) + 's';
+        p.style.opacity = Math.random() * 0.4 + 0.1;
+        container.appendChild(p);
+      }
+    })();
 
-      <!-- Heading -->
-      <h1 class="reveal-item text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-normal tracking-tight leading-[1.05] mb-6">
-        <span class="text-white">Perempuan Hebat,</span><br>
-        <span class="shimmer-text">Indonesia Maju</span>
-      </h1>
+    // ===== MOBILE MENU =====
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    let menuOpen = false;
 
-      <!-- Subtitle -->
-      <p class="reveal-item text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Memperingati jasa <strong class="text-amber-400">R.A. Kartini</strong> sebagai pelopor emansipasi perempuan Indonesia. Bersama kita lanjutkan perjuangan kesetaraan.
-      </p>
+    menuToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden', !menuOpen);
+      menuIcon.setAttribute('data-icon', menuOpen ? 'lucide:x' : 'lucide:menu');
+      if (window.Iconify) Iconify.scan();
+    });
 
-      <!-- CTA Buttons -->
-      <div class="reveal-item flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button onclick="document.getElementById('sejarah').scrollIntoView({behavior:'smooth'})"
-          class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-500 text-white font-semibold px-8 py-4 rounded-xl transition-all shadow-lg shadow-amber-600/20 hover:shadow-amber-500/30 hover:-translate-y-0.5">
-          <i data-lucide="book-open" class="w-5 h-5"></i>
-          Jelajahi Sejarah
-        </button>
-        <button onclick="document.getElementById('kegiatan').scrollIntoView({behavior:'smooth'})"
-          class="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white font-medium px-8 py-4 rounded-xl border border-white/10 hover:border-white/20 transition-all hover:-translate-y-0.5">
-          <i data-lucide="calendar" class="w-5 h-5"></i>
-          Lihat Kegiatan
-        </button>
-      </div>
+    document.querySelectorAll('.mob-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.classList.add('hidden');
+        menuIcon.setAttribute('data-icon', 'lucide:menu');
+        if (window.Iconify) Iconify.scan();
+      });
+    });
 
-      <!-- Stats -->
-      <div class="reveal-item mt-16 grid grid-cols-3 gap-6 max-w-lg mx-auto">
-        <div class="text-center">
-          <div class="text-2xl md:text-3xl font-serif font-semibold text-amber-400">146</div>
-          <div class="text-xs text-slate-500 mt-1">Tahun Perjuangan</div>
+    // ===== NAVBAR SCROLL =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.style.background = 'rgba(59,26,16,0.92)';
+        navbar.style.backdropFilter = 'blur(20px)';
+        navbar.style.borderBottom = '1px solid rgba(212,128,58,0.1)';
+      } else {
+        navbar.style.background = 'transparent';
+        navbar.style.backdropFilter = 'none';
+        navbar.style.borderBottom = 'none';
+      }
+    });
+
+    // ===== SCROLL REVEAL =====
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('anim-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.anim-up, .anim-left, .anim-right, .anim-scale').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // ===== COUNTER ANIMATION =====
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target);
+          const duration = 2000;
+          const start = performance.now();
+          function update(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(eased * target);
+            if (progress < 1) requestAnimationFrame(update);
+          }
+          requestAnimationFrame(update);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+    // ===== CHAR COUNT =====
+    const inputMsg = document.getElementById('inputMsg');
+    const charCount = document.getElementById('charCount');
+    inputMsg.addEventListener('input', () => {
+      charCount.textContent = inputMsg.value.length;
+    });
+
+    // ===== TOAST =====
+    function showToast(msg, isSuccess = true) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      const toastIcon = document.getElementById('toastIcon');
+      toastMsg.textContent = msg;
+      toastIcon.setAttribute('data-icon', isSuccess ? 'lucide:check-circle-2' : 'lucide:alert-circle');
+      toastIcon.style.color = isSuccess ? '#d4803a' : '#ef4444';
+      if (window.Iconify) Iconify.scan();
+      toast.style.transform = 'translateY(0)';
+      toast.style.opacity = '1';
+      toast.style.pointerEvents = 'auto';
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(() => {
+        toast.style.transform = 'translateY(20px)';
+        toast.style.opacity = '0';
+        toast.style.pointerEvents = 'none';
+      }, 3000);
+    }
+
+    // ===== PESAN SYSTEM (localStorage) =====
+    const MSG_KEY = 'kartini_pesan_2025';
+    const defaultMsgs = [
+      { name: 'Siti Nurhaliza', city: 'Jakarta', text: 'Terima kasih Kartini, karena engkau kami bisa bermimpi setinggi langit tanpa batas gender.', time: Date.now() - 172800000 },
+      { name: 'Ahmad Fauzi', city: 'Surabaya', text: 'Emansipasi bukan hanya urusan perempuan. Ini urusan kemanusiaan. Kartini mengajarkan itu kepada kita semua.', time: Date.now() - 86400000 },
+      { name: 'Dewi Lestari', city: 'Yogyakarta', text: 'Setiap kali saya menulis, saya ingat Kartini yang menulis surat demi surat di dalam pingitan. Kekuatan kata-kata memang tak pernah mati.', time: Date.now() - 18000000 },
+      { name: 'Rizky Pratama', city: 'Bandung', text: 'Hari Kartini bukan sekadar hari kebesaran — ini pengingat bahwa perjuangan kesetaraan masih panjang dan kita semua punya peran.', time: Date.now() - 3600000 },
+    ];
+
+    function getPesan() {
+      try {
+        const d = localStorage.getItem(MSG_KEY);
+        if (d) return JSON.parse(d);
+      } catch (e) {}
+      return [...defaultMsgs];
+    }
+
+    function simpanPesan(msgs) {
+      try { localStorage.setItem(MSG_KEY, JSON.stringify(msgs)); } catch (e) {}
+    }
+
+    function waktuLalu(ts) {
+      const diff = Date.now() - ts;
+      const m = Math.floor(diff / 60000);
+      const h = Math.floor(diff / 3600000);
+      const d = Math.floor(diff / 86400000);
+      if (m < 1) return 'Baru saja';
+      if (m < 60) return m + ' menit lalu';
+      if (h < 24) return h + ' jam lalu';
+      return d + ' hari lalu';
+    }
+
+    function escapeHtml(s) {
+      const d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    function renderPesan() {
+      const msgs = getPesan().sort((a, b) => b.time - a.time);
+      const c = document.getElementById('msgContainer');
+      c.innerHTML = `
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="font-serif text-lg font-bold">Pesan dari Tamu</h3>
+          <span class="text-xs text-kartini-400/50">${msgs.length} pesan</span>
         </div>
-        <div class="text-center border-x border-white/10">
-          <div class="text-2xl md:text-3xl font-serif font-semibold text-amber-400">34</div>
-          <div class="text-xs text-slate-500 mt-1">Provinsi</div>
+        <div class="flex flex-col gap-4">
+          ${msgs.map(m => `
+            <div class="p-5 rounded-xl bg-kartini-900/30 border border-kartini-800/20 transition-colors hover:border-kartini-700/30">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full bg-gradient-to-br from-kartini-400 to-kartini-600 flex items-center justify-center text-kartini-950 font-serif font-bold text-xs">
+                    ${escapeHtml(m.name.charAt(0).toUpperCase())}
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-kartini-100">${escapeHtml(m.name)}</p>
+                    <p class="text-[11px] text-kartini-400/50">${escapeHtml(m.city)}</p>
+                  </div>
+                </div>
+                <span class="text-[11px] text-kartini-500/40">${waktuLalu(m.time)}</span>
+              </div>
+              <p class="text-sm text-kartini-200/70 leading-relaxed">${escapeHtml(m.text)}</p>
+            </div>
+          `).join('')}
         </div>
-        <div class="text-center">
-          <div class="text-2xl md:text-3xl font-serif font-semibold text-amber-400">∞</div>
-          <div class="text-xs text-slate-500 mt-1">Inspirasi</div>
-        </div>
-      </div>
-    </div>
+      `;
+    }
 
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500">
-      <span class="text-[10px] tracking-widest uppercase">Scroll</span>
-      <div class="w-5 h-8 rounded-full border border-slate-600 flex justify-center pt-1.5">
-        <div class="w-1 h-2 bg-amber-500 rounded-full animate-bounce"></div>
-      </div>
-    </div>
-  </section>
+    function kirimPesan() {
+      const name = document.getElementById('inputName').value.trim();
+      const city = document.getElementById('inputCity').value.trim();
+      const text = document.getElementById('inputMsg').value.trim();
 
-  <!-- ==================== TENTANG SECTION ==================== -->
-  <section id="tentang" class="relative py-24 md:py-32 bg-slate-900 batik-pattern-dark">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
-        <!-- Image -->
-        <div class="fade-up relative">
-          <div class="absolute -inset-4 bg-gradient-to-br from-amber-500/10 to-transparent rounded-3xl blur-2xl"></div>
-          <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-            <img sr
+      if (!name) { showToast('Silakan isi nama panggilanmu.', false); document.getElementById('inputName').focus(); return; }
+      if (!city) { showToast('Silakan isi kota asalmu.', false); document.getElementById('inputCity').focus(); return; }
+      if (!text) { showToast('Silakan tulis pesan atau tributmu.', false); document.getElementById('inputMsg').focus(); return; }
+      if (text.length < 10) { showToast('Pesan terlalu singkat, minimal 10 karakter.', false); document.getElementById('inputMsg').focus(); return; }
+
+      const msgs = getPesan();
+      msgs.push({ name, city, text, time: Date.now() });
+      simpanPesan(msgs);
+
+      document.getElementById('inputName').value = '';
+      document.getElementById('inputCity').value = '';
+      document.getElementById('inputMsg').value = '';
+      charCount.textContent = '0';
+
+      renderPesan();
+      showToast('Pesan terkirim! Terima kasih atas tributmu.');
+
+      setTimeout(() => {
+        const first = document.querySelector('#msgContainer > div:last-child > div > div:first-child');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300);
+    }
+
+    renderPesan();
+
+    // ===== LIGHTBOX =====
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        lightboxImg.style.transform = 'scale(1)';
+        lightboxImg.style.opacity = '1';
+      });
+    }
+
+    function closeLightbox() {
+      lightboxImg.style.transform = 'scale(0.9)';
+      lightboxImg.style.opacity = '0';
+      setTimeout(() => {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // ===== BAGIKAN =====
+    function bagikan() {
+      const text = '🌺 Hari Kartini 21 April — "Habis Gelap Terbitlah Terang". Selamat memperingati Hari Kartini 2025!';
+      if (navigator.share) {
+        navigator.share({ title: 'Hari Kartini 2025', text, url: location.href }).catch(() => {});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(text + ' ' + location.href).then(() => showToast('Link berhasil disalin!'));
+      } else {
+        showToast('Link berhasil disalin!');
+      }
+    }
+
+    // ===== RESPONSIVE GRID HERO (for md:grid-cols-2) =====
+    function applyResponsive() {
+      const w = window.innerWidth;
+      document.querySelectorAll('[class*="md:grid-cols-2"], [class*="md:grid-cols-3"]').forEach(el => {
+        // Tailwind handles via CDN, nothing manual needed
+      });
+    }
+    applyResponsive();
+    window.addEventListener('resize', applyResponsive);
+  </script>
+</body>
+</html>
